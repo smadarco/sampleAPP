@@ -5,12 +5,15 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import {MatDividerModule} from '@angular/material/divider';
+import {MatGridListModule} from '@angular/material/grid-list';
+
 
 const modules = [  MatToolbarModule,
   MatIconModule
   ,MatButtonModule,
   MatCardModule,
-  MatDividerModule]
+  MatDividerModule,
+  MatGridListModule]
 
 
 

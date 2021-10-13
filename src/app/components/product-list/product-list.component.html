@@ -1,12 +1,35 @@
 
 
-<div class="product-list">
-    <div class="item-wrap" *ngFor= "let item of products ">
-        <mat-card class="main"> 
-            <img mat-card-image src={{item.img}} >
-            <mat-card-title>{{item.name}}</mat-card-title>
-            <mat-card-subtitle>{{item.description}}</mat-card-subtitle> 
-        </mat-card>
-        <mat-divider></mat-divider>
-    </div>
+<div dir="rtl">
+    
+       
+       
+<h3> {{products.length}} התקנים רשומים</h3>
+
 </div>
+<mat-grid-list cols="5" rowHeight="100px">
+    <mat-grid-tile
+        *ngFor="let item of products"
+        [colspan]="item.cols"
+        [rowspan]="item.rows"
+     >
+     <mat-card class="main"> 
+        <div class="list-container">
+         <mat-card-title >{{item.company}}</mat-card-title>
+         <mat-card-subtitle>
+             {{item.phone}}
+             <br>
+
+             {{item.orderedOn | date: 'dd/MM/yyyy'}} תאריך קנייה  
+             <br>
+             {{item.lastReportDate | date: 'dd/MM/yyyy'}} דוח אחרון  
+                     </mat-card-subtitle> 
+                    <!--  <img mat-card-image src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPsAAADICAMAAAAZQmeXAAAA2FBMVEX///8isUwArDsTr0Vzxob//P8dsEkbskyAypAArT8Rr0RQmjv7/fsYr0cAr0IIrkHL6NHU7Nnt9+8AqjREuGLF5cw5tlr/8/WHzZfe8OLA48ehr4O1374gpjqX06Rckjbf49aGvYSqzKUioDDC1rtutXBvunYNpTM8tlwsq0XLzLZKo0fl8+jx5uFdrFx5yIvE0LaLpm1mpVf95+jh18zx0s84nDJtpVqrsIjcwLLCt51cv3S5u5vRtqRnjTWi165Vo0xumEqenm64qol6sXHbyrybypxGqk/J2XIHAAAEcklEQVR4nO3dWVvaQBQG4JlBUpISQQME69LWakVbpHXpvq///x91Iqh5rFGWzDlnyPdecsX3zGTWZEYpAAAAAAAAAAAAAAAAAAAAAAAAAAAAQk/a7acrOTvt7jr3f3KvvrHbf5YYY2p5LftD0umvbXD/PXfW9/a1WY307YLIhLqxtowVoLm3n4RxQe6r/DUTNtrcf7Vc9b3nB/cGn6gZvUTx093tsDZd8MvS7zzi/tOlSHefrT6YIfk4vhn4n76+ebg6a/BJ+k6X+88v5ujF7GV+nb73kvv/z294bOZOfpE+GXFHmFN9M5myaS8WhV42+cPj+R70G5IV7iCze3U4S7d2h1bHs6Fu+nqxJz0vbm1xx5lFelJKfb+U9LkDTe/0pGjCMifTb3JnmtLZQUmP+rVWz4/wZ9ulPerX4oEP4Z1Et9M7D8KfHTiJbsOLr/bnbxxFt9Vec4e7W/rYWXTb4Inu6tK3pbfweWaHO+Ad3pXcr98UrXEnLPTeuI1up/RSl3GHbnq3vLjDHfJ2dbcP+1go85H/UOr8pUgisdYP3fXsefFH7qC3eO24jb9k5M3m34c00XUQc0e9KX1BUuMzkbQVvE8kDd2YkbWA53Qcf1Mka1z/mbDYbcFLms2mXwiL3U7ovnIHzqEtdjvA4Q6c83bhzafZtOSMbM8PaaPrQM6UZpO4ytvWTsoWZfqNtKXL1BrcoSfOWtTRdaCFdHObRLOYPCGVPv1OXuXFdPGnVDO4vKDHHfvCB4Yqr3UsYv3mB0t2I2K5mnIKdy2SMLQ73eaIrmMJKxjnrjckCrS4g1s/yQe0k+wCXrrkGNlkJIxuXO8/Fgn5G/o6TzMvoqGvP2TKLmAqh+zIjuwVyk6z9Swze5XLHdmRHdkrk12dVHc8X+V5HFt2CfN3mlcK/xcKWLfhWq+LuINbKc86rYyNmQqvz6t3LA+8jH2ZI/rtdy1lP67K+7CqwvvvapfhgZcwsskMD8iji3nfRh0Tv1poJ3FiDgGhr/RSqnz2cRhxdEHvVapfBF+H5Ql6n1b9Jp7PSHqPWn0nLXgpnfsYbcGHUjq4sb8BXXRpnwe+Iix4Yd9JKVXh7+PUMKHKLu67SKX+EA3uBH4PS7UZLa2hG3tC0tyJ/P7djmwJFq+Ennugmj3nc1mp513Ytt71yp3cc06U2nP8yAs+30aphtOOTvS5Rio9cTihk32elQ3/11l46eeY2cZeO2rsY/Hn1znr6fw4tNFJeB9KPdPUpQ/wfDmn1DZ4jZL7eX/Op7XKDe/TucTW1rRXa9wvDgXO2O+01inp3bNWR/JAtsBKKfXex/Pnra5ZeIzn6b0DmZXFbl3w976JzMZHM/emhd/3jGQe9eZLH5iB5/fLZOZJb8vc/3uFLmwNZmr1gtoy3Kh0pTvSU8a3wfXI28b9ds32yJjaPZU/uLhAzaOx+9TW26PAhFFB/uzewGA5g09sbPUHiQnDKM6JwnDZ74u8st5t71TvnlAAAAAAAAAAAAAAAAAAAAAAAABv/QNTQlzebGmNtgAAAABJRU5ErkJggg==" >
+        -->
+       
+     </div>
+     </mat-card>
+     <mat-divider></mat-divider>
+
+    </mat-grid-tile>
+  </mat-grid-list>
